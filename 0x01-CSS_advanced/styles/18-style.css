@@ -139,7 +139,7 @@ nav {
     text-align: center;
 }
 
-.nav .nav-item{
+.nav .nav-item {
 font-family: var(--nav-item-font-family);
 font-weight: var(--nav-item-font-weight);
 font-size: var(--nav-item-font-size);
@@ -148,7 +148,7 @@ display: var(--nav-item-display);
 margin: var(--nav-item-margin);
 }
 
-.nav .nav-link{
+.nav .nav-link {
     display: block;
     padding: 50%, 0, 50%, 0;
 }
