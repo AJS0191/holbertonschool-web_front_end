@@ -150,7 +150,7 @@ margin: var(--nav-item-margin);
 
 .nav .nav-link{
     display: block;
-    padding: 50%, 50%, 0, 0;
+    padding: 50%, 0, 50%, 0;
 }
 
 .nav .nav-link:hover {
