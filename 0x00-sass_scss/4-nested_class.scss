@@ -1,0 +1,9 @@
+$colorBodyT : #3D3D3D;
+$colorRedT : #FF0000;
+
+body {
+    color: $colorBodyT;
+    .red {
+        color: $colorRedT
+    }
+}
