@@ -11,3 +11,4 @@
 *.map
 0x00-sass_scss/0-debug_log.css
 0x00-sass_scss/1-color_variable.css
+0x00-sass_scss/2-color_variables.css
