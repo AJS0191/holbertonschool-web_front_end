@@ -8,3 +8,6 @@
 0x00-html_advanced/logo-black.png
 0x03-responsive_design/00-index.html
 0x03-responsive_design/00-styles.css
+*.map
+0x00-sass_scss/0-debug_log.css
+0x00-sass_scss/1-color_variable.css
