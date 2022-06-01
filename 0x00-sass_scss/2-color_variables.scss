@@ -1,0 +1,15 @@
+$colorT : #3D3D3D;
+$colorB : #6D6D6D;
+
+body {
+    color: $colorT;
+    background-color: $colorB;
+}
+
+p {
+    color: $colorT;
+}
+
+h2 {
+    background-color: $colorB;
+}
