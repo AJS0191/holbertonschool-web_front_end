@@ -1,0 +1,16 @@
+$colorRedT : #FF0000;
+$colorT : #00FF00;
+
+.info {
+    font-size: 12px; 
+}
+
+.warning {
+        @extend .info;
+        color: $colorRedT;
+    }
+
+.success {
+        @extend .info;
+        color: $colorT;
+    }
