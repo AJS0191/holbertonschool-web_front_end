@@ -1,0 +1,10 @@
+$colorRedT : #FF0000;
+$colorT : #00FF00;
+
+button {
+    color: $colorRedT;
+    :hover {
+        color: $colorT;
+    }
+}
+
