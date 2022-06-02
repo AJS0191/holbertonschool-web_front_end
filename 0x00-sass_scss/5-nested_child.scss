@@ -3,7 +3,7 @@ $colorRedT : #FF0000;
 
 body {
     color: $colorBodyT;
-    .red {
-        color: $colorRedT;
+    > .red {
+        color: $colorRedT
     }
 }
