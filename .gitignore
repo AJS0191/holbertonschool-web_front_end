@@ -19,3 +19,6 @@
 0x00-sass_scss/7-nested_deeper.css
 0x00-sass_scss/8-mixin_margins.css
 0x00-sass_scss/9-extend_list.css
+0x00-sass_scss/10-import_colors.css
+0x00-sass_scss/10-colors.scss
+0x00-sass_scss/10-colors.css
