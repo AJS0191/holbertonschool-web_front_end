@@ -3,6 +3,7 @@ function createElement (data) {
   p.innerHTML - JSON.stringify(data);
   document.body.appendChild(p);
 }
+
 function queryWikipedia(callback) {
   let req = new XMLHttpRequest;
   method = 'GET'
