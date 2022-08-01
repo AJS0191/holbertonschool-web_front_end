@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"></script>
+        <title>Task 0</title>
+        
+
+    </head>
+
+    <body>
+<script type="application/javascript">
+    $.createFamilyTree = function () {
+        tableHead = $('<thead></thead>').append($('<td></td>').text('Firstname'), $('<td></td>').text('Lastname'));
+        tableBody = $('<tbody></tbody>');
+        table = $('<table></table>').append(tableHead, tableBody)
+        $('body').append(table);
+    }
+    $.addNewMember = function (firstName, lastName, position) {
+        fName = $('<td></td>').text(firstName);
+        lName = $('<td></td>').text(lastName);
+        remX = $('<td></td>').text('(x)');
+        $(remX).css('background-color', 'orange');
+        $(remX).click(function() {
+            $(this).parent().remove();
+        })
+        newRow = $('<tr></tr>').append(fName, lName, remX);
+        if (position === 'before') {
+            $('tbody').prepend(newRow);
+        }
+        $('tbody').append(newRow);
+    }
+    $.createForm = function() {
+        fNameInput = $('<input></input').attr('type','text');
+        lNameInput = $('<input></input').attr('type','text');
+        beforeOption = $('<option></option>').attr('value','before').text('Before');
+        afterOption = $('<option></option>').attr('value','after').text('After');
+        orderSelect = $('<select></select>').append(beforeOption, afterOption);
+        subButton = $('<input></input>').attr('type', 'submit').click( function () {$.addNewMember($("input").first().val(), $("input:nth-of-type(2)").val(), $("option:selected").first().val());});
+        form = $('<div></div>').append(fNameInput, lNameInput, orderSelect, subButton);
+        $('body').prepend(form);
+        
+    }
+    $().ready( function() {
+    $.createFamilyTree();
+    $.createForm();   
+    })
+    
+</script>
+    </body>
+
+</html>
