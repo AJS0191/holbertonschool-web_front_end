@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+        </script>
+        <title>Task 0</title>
+        
+
+    </head>
+
+    <body>
+<script type="application/javascript">
+    $.createSearchForm = function () {
+        search = $('<input>').attr('type', 'text')
+        subButton = $('<input>').attr('type', 'submit').click (function() {$.queryWikipedia($('input').first().val());});
+        placeHolder = $('<ul>');
+        form = $('<div>').append(search, subButton);
+        $('body').append(form, placeHolder);
+        $('body').append($('<ul>').attr('id','pagination'));
+    }
+
+    $.addNewArticle = function (id, title, snippet) {
+        p1 = $('<p>').append($('<span>').html(`${id} - <b>${title}</b>`));
+        p2 = $('<p>').html(snippet);
+        article = $('<li>').append(p1, p2);
+        $('ul').first().append(article);
+    }
+
+    $.buildPagination = function (numberOfItems, itemsPerPage, currentOffset) {
+        $('#pagination').empty();
+        for (let i = 1; i <= (numberOfItems / itemsPerPage); i++) {
+            let li = $('<li>').html(i);
+            li.css({'display':'inline', 'cursor':'pointer', 'margin-left':'10px'});
+            if (currentOffset === itemsPerPage * (i - 1)) {
+                li.css('font-weight', 'bold');
+            }
+            $('#pagination').append(li);
+        }
+        $('#pagination li').click(function () {
+            $.queryWikipedia($('input').first().val(), itemsPerPage * ($(this).html() - 1));
+        })
+    }
+
+    $.queryWikipedia = function (search, offset=0) {
+        console.log('hit the function')
+        var url = "https://en.wikipedia.org/w/api.php"; 
+
+        var params = {
+            action: "query",
+            list: "search",
+            srsearch: search,
+            format: "json",
+            sroffset: offset
+        };
+
+        url = url + "?origin=*";
+        Object.keys(params).forEach(function(key){url += `&${key}=${params[key]}`;});
+        $.ajax({
+            url: url,
+            type: 'get',
+            success: function(response) {
+                console.log(response);
+                $("ul").first().empty();
+                let data = response.query.search;
+                for (let x = 0; x < response.query.search.length; x++) {
+                    $.addNewArticle(data[x].pageid, data[x].title, data[x].snippet);
+                    }
+                $.buildPagination(response.query.searchinfo.totalhits, 10, offset);
+                }
+            }
+        )};
+$().ready(function() {
+    $.createSearchForm();
+})
+
+</script>
+    </body>
+
+</html>
